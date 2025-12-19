@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "testng.org">
+<suite name="Main Test Suite" parallel="classes" thread-count="5">
+
+
+    <test name="Functional Tests">
+        <classes>
+            <class name="com.example.tests.LoginTest" />
+            <class name="com.example.tests.DashboardTest" />
+        </classes>
+    </test>
+    
+</suite>
