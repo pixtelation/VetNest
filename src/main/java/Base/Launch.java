@@ -156,7 +156,7 @@ public class Launch {
         GuestLogin ta = new GuestLogin(driver);
         ta.EnterEmailfx(ConfigReader.getProperty("GuestEmail"));
         ta.EnterPasswordfx(ConfigReader.getProperty("GuestPass"));
-        ta.Loginbtnfx();
+        ta.Submitbtnfx();
 
         isLoggedIn = true;
         System.out.println("🔑 Logged in as Guest");

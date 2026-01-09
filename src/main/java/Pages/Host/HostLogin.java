@@ -12,14 +12,19 @@ public class HostLogin {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(xpath = "")
+    @FindBy(xpath = "//input[@id='email']")
     WebElement email;
 
-    @FindBy(xpath = "")
+    @FindBy(xpath = "//input[@id='password']")
     WebElement password;
 
-    @FindBy(xpath = "")
+    @FindBy(xpath = "//button[normalize-space()='Login Now']")
     WebElement loginbtn;
+
+    @FindBy(xpath = "//div[contains(text(), 'User not found')]")
+    WebElement statusmsg;
+
+    private String Actualtext = statusmsg.getText();
 
 
     public void EnterEmailfx(String useremail)
@@ -36,6 +41,12 @@ public class HostLogin {
     {
         loginbtn.click();
     }
+
+    public String getData()
+    {
+        return Actualtext;
+    }
+
 
 
 

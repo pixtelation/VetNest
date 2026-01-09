@@ -21,9 +21,24 @@ public class GuestLogin {
 @FindBy(xpath = "//input[@id='password']")
 WebElement password;
 
-@FindBy(xpath = "//input[@id='password']")
-WebElement loginbtn;
+@FindBy(xpath = "//button[@type='submit']")
+WebElement submitbtn;
 
+@FindBy(xpath = "(//span[normalize-space()='Sign In'])[1]")
+WebElement menuSignIN;
+
+@FindBy(xpath = "//input[@value and @name='otp.0']")
+WebElement Otp1;
+
+@FindBy(xpath = "//span[normalize-space()='Submit']")
+WebElement otpsubmitbtn1;
+
+
+
+public void MenuSignIn()
+{
+ menuSignIN.click();
+}
 
 
 public void EnterEmailfx(String useremail)
@@ -36,9 +51,20 @@ public void EnterPasswordfx(String userpassword)
     password.sendKeys(userpassword);
 }
 
-public void Loginbtnfx()
+public void Submitbtnfx()
 {
- loginbtn.click();
+ submitbtn.click();
+}
+
+
+public void pasteStaticOTP()
+{
+  Otp1.sendKeys("123456");
+}
+
+public void OTPSubmitbtnfx()
+{
+ otpsubmitbtn1.click();
 }
 
 
