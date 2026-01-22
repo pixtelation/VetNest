@@ -22,9 +22,13 @@ public class HostLogin {
     WebElement loginbtn;
 
     @FindBy(xpath = "//div[contains(text(), 'User not found')]")
-    WebElement statusmsg;
+    public WebElement statusmsg;
 
-    private String Actualtext = statusmsg.getText();
+    @FindBy(xpath = "//input[@name='otp.0']")
+    public WebElement otp;
+
+    @FindBy(xpath = "//button[normalize-space()='Verify']")
+    public WebElement Verify;
 
 
     public void EnterEmailfx(String useremail)
@@ -42,11 +46,17 @@ public class HostLogin {
         loginbtn.click();
     }
 
-    public String getData()
+    public void SendOtp()
     {
-        return Actualtext;
+        otp.sendKeys("123456");
     }
 
+    public void Verifybtn()
+    {
+        Verify.click();
+    }
+
+   
 
 
 

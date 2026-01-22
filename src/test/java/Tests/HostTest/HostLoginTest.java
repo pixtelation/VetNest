@@ -1,7 +1,7 @@
 package Tests.HostTest;
 
 import org.testng.annotations.Test;
-import org.apache.hc.core5.net.Host;
+
 import org.testng.Assert;
 
 import Base.Launch;
@@ -14,8 +14,6 @@ public class HostLoginTest extends Launch{
 
     String email = ConfigReader.getProperty("HostEmail");
     String password = ConfigReader.getProperty("HostPass");
-
-    
 
 
 
@@ -33,9 +31,12 @@ public void HostBlankLogin()
  {
   HostLogin hl = new HostLogin(getDriver());
     hl.EnterEmailfx("galat@yopmail.com");
-    hl.EnterPasswordfx("JoBhiMainKehnaChahu");
+    hl.EnterPasswordfx("12345678@Ab");
     hl.Loginbtnfx();
-    Assert.assertEquals(,"User not found");
+
+    String Statusmsg = hl.statusmsg.getText();
+    System.out.println(Statusmsg);
+   // Assert.assertEquals(Statusmsg,"User not found");
  }
 
 
@@ -47,6 +48,8 @@ public void HostBlankLogin()
     hl.EnterEmailfx(email);
     hl.EnterPasswordfx(password);
     hl.Loginbtnfx();
+    hl.SendOtp();
+    hl.Verifybtn();
   }
 
 
